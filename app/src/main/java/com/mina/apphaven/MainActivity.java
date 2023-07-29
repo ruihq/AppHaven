@@ -20,14 +20,14 @@ import java.io.File;
 
 public class MainActivity extends Activity {
 
-    private final String[] appNames = {"APP1", "APP2", "APP3"};
+    private final String[] appNames = {"test", "APP2", "APP3"};
     private final String[] appDownloadUrls = {
-            "https://github.com/username/repo/raw/main/releases/app1.apk",
-            "https://github.com/username/repo/raw/main/releases/app2.apk",
-            "https://github.com/username/repo/raw/main/releases/app3.apk"
+            "https://github.com/ruihq/AppHaven/releases/download/testapk/base.2.apk",
+            "https://github.com/ruihq/AppHaven/raw/main/releases/app2.apk",
+            "https://github.com/ruihq/AppHaven/raw/main/releases/app3.apk"
     };
     private final String[] appImages = {
-            "https://github.com/username/repo/raw/main/releases/app1.png",
+            "https://github.com/ruihq/AppHaven/releases/download/testapk/app_icon.1.png",
             "https://github.com/username/repo/raw/main/releases/app2.png",
             "https://github.com/username/repo/raw/main/releases/app3.png"
     };
