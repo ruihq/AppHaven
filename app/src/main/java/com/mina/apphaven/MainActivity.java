@@ -3,6 +3,7 @@ package com.mina.apphaven;
 import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -25,9 +26,9 @@ public class MainActivity extends Activity {
 
     private final String[] appNames = {"test", "APP2", "APP3"};
     private final String[] appDownloadUrls = {
-            "https://github.com/ruihq/AppHaven/releases/download/testapk/base.2.apk",
-            "https://github.com/ruihq/AppHaven/raw/main/releases/app2.apk",
-            "https://github.com/ruihq/AppHaven/raw/main/releases/app3.apk"
+        "https://github.com/ruihq/AppHaven/raw/main/testapk/base.2.apk",
+        "https://github.com/ruihq/AppHaven/raw/main/releases/app2.apk",
+        "https://github.com/ruihq/AppHaven/raw/main/releases/app3.apk"
     };
     private final String[] appImages = {
             "https://github.com/ruihq/AppHaven/releases/download/testapk/app_icon.1.png",
@@ -105,22 +106,53 @@ public class MainActivity extends Activity {
         DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
         long downloadId = downloadManager.enqueue(request);
 
-        promptInstall(apkFile);
+        // Show the progress bar and start listening for download completion
+        downloadProgressBar.setVisibility(View.VISIBLE);
+        updateDownloadProgress(downloadId);
     }
 
-    private void promptInstall(File apkFile) {
-        if (apkFile.exists()) {
-            Intent installIntent = new Intent(Intent.ACTION_VIEW);
-            installIntent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
-            installIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    private void updateDownloadProgress(long downloadId) {
+        DownloadManager.Query query = new DownloadManager.Query();
+        query.setFilterById(downloadId);
 
-            if (installIntent.resolveActivity(getPackageManager()) != null) {
-                startActivity(installIntent);
-            } else {
-                Toast.makeText(MainActivity.this, "Error: Unable to find an app to handle the installation.", Toast.LENGTH_SHORT).show();
+        DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                boolean downloading = true;
+
+                while (downloading) {
+                    Cursor cursor = downloadManager.query(query);
+                    if (cursor != null && cursor.moveToFirst()) {
+                        int status = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS));
+                        int downloadedBytes = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
+                        int totalBytes = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
+
+                        final int progress = (int) ((downloadedBytes * 100L) / totalBytes);
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                downloadProgressBar.setProgress(progress);
+                            }
+                        });
+
+                        if (status == DownloadManager.STATUS_SUCCESSFUL || status == DownloadManager.STATUS_FAILED) {
+                            downloading = false;
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    downloadProgressBar.setVisibility(View.GONE);
+                                    Toast.makeText(MainActivity.this, "Download " + (status == DownloadManager.STATUS_SUCCESSFUL ? "completed" : "failed"), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+
+                        cursor.close();
+                    }
+                }
             }
-        } else {
-            Toast.makeText(MainActivity.this, "Error: APK file not found.", Toast.LENGTH_SHORT).show();
-        }
+        }).start();
     }
 }

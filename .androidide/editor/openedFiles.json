@@ -4,14 +4,14 @@
       "file": "/data/data/com.itsaky.androidide/files/home/AppHaven/app/src/main/java/com/mina/apphaven/MainActivity.java",
       "selection": {
         "end": {
-          "column": 0,
+          "column": 4,
           "index": -1,
-          "line": 21
+          "line": 31
         },
         "start": {
-          "column": 0,
+          "column": 4,
           "index": -1,
-          "line": 21
+          "line": 31
         }
       }
     },
@@ -29,7 +29,22 @@
           "line": 31
         }
       }
+    },
+    {
+      "file": "/data/data/com.itsaky.androidide/files/home/AppHaven/app/src/main/res/layout/activity_main.xml",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": -1,
+          "line": 46
+        },
+        "start": {
+          "column": 0,
+          "index": -1,
+          "line": 46
+        }
+      }
     }
   ],
-  "selectedFile": "/data/data/com.itsaky.androidide/files/home/AppHaven/app/src/main/AndroidManifest.xml"
+  "selectedFile": "/data/data/com.itsaky.androidide/files/home/AppHaven/app/src/main/java/com/mina/apphaven/MainActivity.java"
 }
