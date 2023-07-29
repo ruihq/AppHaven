@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
 
     private final String[] appNames = {"test", "APP2", "APP3"};
     private final String[] appDownloadUrls = {
-        "https://github.com/ruihq/AppHaven/raw/main/testapk/base.2.apk",
+        "https://github.com/ruihq/AppHaven/releases/download/testapk/base.2.apk",
         "https://github.com/ruihq/AppHaven/raw/main/releases/app2.apk",
         "https://github.com/ruihq/AppHaven/raw/main/releases/app3.apk"
     };

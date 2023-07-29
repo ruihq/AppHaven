@@ -4,14 +4,14 @@
       "file": "/data/data/com.itsaky.androidide/files/home/AppHaven/app/src/main/java/com/mina/apphaven/MainActivity.java",
       "selection": {
         "end": {
-          "column": 4,
+          "column": 79,
           "index": -1,
-          "line": 31
+          "line": 28
         },
         "start": {
-          "column": 4,
+          "column": 79,
           "index": -1,
-          "line": 31
+          "line": 28
         }
       }
     },
