@@ -14,6 +14,36 @@
           "line": 22
         }
       }
+    },
+    {
+      "file": "/data/data/com.itsaky.androidide/files/home/AppHaven/gradle.properties",
+      "selection": {
+        "end": {
+          "column": 23,
+          "index": -1,
+          "line": 23
+        },
+        "start": {
+          "column": 23,
+          "index": -1,
+          "line": 23
+        }
+      }
+    },
+    {
+      "file": "/data/data/com.itsaky.androidide/files/home/AppHaven/app/build.gradle",
+      "selection": {
+        "end": {
+          "column": 69,
+          "index": -1,
+          "line": 43
+        },
+        "start": {
+          "column": 69,
+          "index": -1,
+          "line": 43
+        }
+      }
     }
   ],
   "selectedFile": "/data/data/com.itsaky.androidide/files/home/AppHaven/app/src/main/java/com/mina/apphaven/MainActivity.java"
