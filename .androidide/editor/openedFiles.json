@@ -4,47 +4,32 @@
       "file": "/data/data/com.itsaky.androidide/files/home/AppHaven/app/src/main/java/com/mina/apphaven/MainActivity.java",
       "selection": {
         "end": {
-          "column": 44,
+          "column": 0,
           "index": -1,
-          "line": 22
+          "line": 21
         },
         "start": {
-          "column": 44,
+          "column": 0,
           "index": -1,
-          "line": 22
+          "line": 21
         }
       }
     },
     {
-      "file": "/data/data/com.itsaky.androidide/files/home/AppHaven/gradle.properties",
+      "file": "/data/data/com.itsaky.androidide/files/home/AppHaven/app/src/main/AndroidManifest.xml",
       "selection": {
         "end": {
-          "column": 23,
+          "column": 0,
           "index": -1,
-          "line": 23
+          "line": 25
         },
         "start": {
-          "column": 23,
+          "column": 0,
           "index": -1,
-          "line": 23
-        }
-      }
-    },
-    {
-      "file": "/data/data/com.itsaky.androidide/files/home/AppHaven/app/build.gradle",
-      "selection": {
-        "end": {
-          "column": 69,
-          "index": -1,
-          "line": 43
-        },
-        "start": {
-          "column": 69,
-          "index": -1,
-          "line": 43
+          "line": 25
         }
       }
     }
   ],
-  "selectedFile": "/data/data/com.itsaky.androidide/files/home/AppHaven/app/src/main/java/com/mina/apphaven/MainActivity.java"
+  "selectedFile": "/data/data/com.itsaky.androidide/files/home/AppHaven/app/src/main/AndroidManifest.xml"
 }
